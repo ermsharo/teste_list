@@ -1,17 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./routes/Home";
-import User from "./routes/User";
+import User from "./pages/User.js";
+import Home from "./pages/Home.js";
 
 function App() {
-  return(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/user" element={<User />} />
-    </Routes>
-  </BrowserRouter>
-  )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<User />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
