@@ -1,4 +1,4 @@
-# Aplicativo de listas
+# Organizador de tarefas
 
 Para executar, basta executar na pasta  my-app os  seguintes comandos: 
 
