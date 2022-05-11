@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import UserName from "./UserName";
 import { getTodoStatusNumber } from "./../utils/userUtils";
 import { useNavigate } from "react-router-dom";
+import AddTask from "./AddTask";
 const style = {
   width: "100%",
   bgcolor: "background.paper",
@@ -78,6 +79,7 @@ export default function TodoList({ apiData, id }) {
             ↤ Voltar para os usuários
           </Typography>
         </ComebackPadding>
+        <AddTask />
       </>
       <List sx={style} component="nav" aria-label="mailbox folders">
         {userByIdData.map((data) => (
