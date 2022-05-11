@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import styled from "styled-components";
+import { UserTaskRequest } from "../utils/api";
 
 const AddLine = styled.div`
   padding: 8px;
@@ -24,43 +25,51 @@ export default function AddTask() {
     setTask(event.target.value);
   };
 
-
-
+  const [response, loading, hasError] = UserTaskRequest();
   return (
     <>
-       <div>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography variant="h4" component="div">Adicionar tarefa</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-        <Box
+      {loading ? (
+        <div>Loading...</div>
+      ) : response ? (
+        <>
+        <div>
+       <Accordion>
+         <AccordionSummary
+           expandIcon={<ExpandMoreIcon />}
+           aria-controls="panel1a-content"
+           id="panel1a-header"
+         >
+           <Typography variant="h4" component="div">Adicionar tarefa</Typography>
+         </AccordionSummary>
+         <AccordionDetails>
+         <Box
+      
+     >
+       <AddLine>
+       <TextField
+         id="fullWidth"
+         fullWidth
+         label="Nova tarefa"
+         value={task}
+         onChange={handleChange}
+       />
+      <Button variant="contained" size="large">
+          Adicionar
+         </Button>
+ 
+ 
+       </AddLine>
      
-    >
-      <AddLine>
-      <TextField
-        id="fullWidth"
-        fullWidth
-        label="Nova tarefa"
-        value={task}
-        onChange={handleChange}
-      />
-     <Button variant="contained" size="large">
-         Adicionar
-        </Button>
-
-
-      </AddLine>
-    
-    </Box>
-        </AccordionDetails>
-      </Accordion>
-     
-    </div>
+     </Box>
+         </AccordionDetails>
+       </Accordion>
+      
+     </div>
+     </>
+      ) : (
+        <>{hasError}</>
+      )}
     </>
   );
+
 }

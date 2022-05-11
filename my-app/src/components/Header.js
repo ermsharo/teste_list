@@ -12,7 +12,7 @@ export default function Home() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h4" component="div">
-              Todo app
+              Gerenciador de tarefas
             </Typography>
           </Toolbar>
         </AppBar>
